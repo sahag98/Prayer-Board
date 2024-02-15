@@ -2,79 +2,178 @@ import { UserMeta } from "@/liveblocks.config";
 
 const USER_INFO: UserMeta[] = [
   {
-    id: "charlie-layne@example.com",
+    id: "1",
     info: {
-      name: "Charlie Layne",
+      name: "Anonymous",
       color: "#D583F0",
       avatar: "https://liveblocks.io/avatars/avatar-1.png",
     },
   },
   {
-    id: "mislav-abha@example.com",
+    id: "2",
     info: {
-      name: "Mislav Abha",
+      name: "Anonymous",
       color: "#F08385",
       avatar: "https://liveblocks.io/avatars/avatar-2.png",
     },
   },
   {
-    id: "tatum-paolo@example.com",
+    id: "3",
     info: {
-      name: "Tatum Paolo",
+      name: "Anonymous",
       color: "#F0D885",
       avatar: "https://liveblocks.io/avatars/avatar-3.png",
     },
   },
   {
-    id: "anjali-wanda@example.com",
+    id: "4",
     info: {
-      name: "Anjali Wanda",
+      name: "Anonymous",
       color: "#85EED6",
       avatar: "https://liveblocks.io/avatars/avatar-4.png",
     },
   },
   {
-    id: "jody-hekla@example.com",
+    id: "5",
     info: {
-      name: "Jody Hekla",
+      name: "Anonymous",
       color: "#85BBF0",
       avatar: "https://liveblocks.io/avatars/avatar-5.png",
     },
   },
   {
-    id: "emil-joyce@example.com",
+    id: "6",
     info: {
-      name: "Emil Joyce",
+      name: "Anonymous",
       color: "#8594F0",
       avatar: "https://liveblocks.io/avatars/avatar-6.png",
     },
   },
   {
-    id: "jory-quispe@example.com",
+    id: "7",
     info: {
-      name: "Jory Quispe",
+      name: "Anonymous",
       color: "#85DBF0",
       avatar: "https://liveblocks.io/avatars/avatar-7.png",
     },
   },
   {
-    id: "quinn-elton@example.com",
+    id: "8",
     info: {
-      name: "Quinn Elton",
+      name: "Anonymous",
       color: "#87EE85",
       avatar: "https://liveblocks.io/avatars/avatar-8.png",
+    },
+  },
+  {
+    id: "9",
+    info: {
+      name: "Anonymous",
+      color: "#87EE85",
+      avatar: "https://liveblocks.io/avatars/avatar-9.png",
+    },
+  },
+  {
+    id: "10",
+    info: {
+      name: "Anonymous",
+      color: "#87EE85",
+      avatar: "https://liveblocks.io/avatars/avatar-10.png",
+    },
+  },
+  {
+    id: "11",
+    info: {
+      name: "Anonymous",
+      color: "#87EE85",
+      avatar: "https://liveblocks.io/avatars/avatar-11.png",
+    },
+  },
+  {
+    id: "12",
+    info: {
+      name: "Anonymous",
+      color: "#87EE85",
+      avatar: "https://liveblocks.io/avatars/avatar-12.png",
+    },
+  },
+  {
+    id: "13",
+    info: {
+      name: "Anonymous",
+      color: "#87EE85",
+      avatar: "https://liveblocks.io/avatars/avatar-13.png",
+    },
+  },
+  {
+    id: "14",
+    info: {
+      name: "Anonymous",
+      color: "#87EE85",
+      avatar: "https://liveblocks.io/avatars/avatar-14.png",
+    },
+  },
+  {
+    id: "15",
+    info: {
+      name: "Anonymous",
+      color: "#87EE85",
+      avatar: "https://liveblocks.io/avatars/avatar-15.png",
+    },
+  },
+  {
+    id: "16",
+    info: {
+      name: "Anonymous",
+      color: "#87EE85",
+      avatar: "https://liveblocks.io/avatars/avatar-16png",
+    },
+  },
+  {
+    id: "Anon17",
+    info: {
+      name: "Anonymous",
+      color: "#87EE85",
+      avatar: "https://liveblocks.io/avatars/avatar-17.png",
+    },
+  },
+  {
+    id: "18",
+    info: {
+      name: "Anonymous",
+      color: "#87EE85",
+      avatar: "https://liveblocks.io/avatars/avatar-18.png",
+    },
+  },
+  {
+    id: "19",
+    info: {
+      name: "Anonymous",
+      color: "#87EE85",
+      avatar: "https://liveblocks.io/avatars/avatar-19.png",
+    },
+  },
+  {
+    id: "20",
+    info: {
+      name: "Anonymous",
+      color: "#87EE85",
+      avatar: "https://liveblocks.io/avatars/avatar-20.png",
     },
   },
 ];
 
 export function getRandomUser() {
+  console.log("getting random user");
   return USER_INFO[Math.floor(Math.random() * 10) % USER_INFO.length];
 }
 
 export function getUser(id: string) {
-  return USER_INFO.find((u) => u.id === id) || null;
+  console.log("getting a user");
+  return USER_INFO.find((u) => u.id == id) || null;
 }
 
 export function getUsers() {
+  console.log("getting all user");
   return USER_INFO;
 }
