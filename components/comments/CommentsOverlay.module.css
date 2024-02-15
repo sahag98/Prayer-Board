@@ -1,5 +1,6 @@
 .overlayWrapper {
   position: absolute;
+  background-color: red;
   top: 0;
   left: 0;
   display: flex;
@@ -8,6 +9,7 @@
 
 .overlayThread {
   border: 1px solid var(--color-border);
+  
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
   overflow: hidden;

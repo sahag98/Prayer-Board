@@ -1,7 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+
+@import "@liveblocks/react-comments/styles.css";
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -74,3 +77,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+.lb-root {
+  --lb-accent: rgb(38, 60, 187);
+  --lb-spacing: 1em;
+  --lb-radius: 2em;
+  --lb-foreground: white;
+  --lb-background: #212121;
+}
+
+

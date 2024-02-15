@@ -14,7 +14,7 @@
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
-  background: #fff;
+  background: #e1e1e1;
 }
 
 .avatarPin[data-draggable] {
@@ -33,9 +33,10 @@
 
 .pinnedContent {
   box-shadow: var(--shadow);
-  background: #fff;
+  background: #8a6d6d;
   border-radius: 8px;
   display: flex;
+  z-index: 999;
   flex-direction: column;
   font-size: 14px;
   min-width: 240px;
@@ -43,7 +44,7 @@
 }
 
 .composer {
-  width: 300px;
+  width: 600px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);

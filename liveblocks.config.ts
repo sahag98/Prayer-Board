@@ -102,10 +102,14 @@ export const {
   client,
   {
     async resolveUsers({ userIds }) {
+      // return [];
       const searchParams = new URLSearchParams(
         userIds.map((userId) => ["userIds", userId])
       );
+
       const response = await fetch(`/api/users?${searchParams}`);
+
+      console.log("res: ", response);
 
       if (!response.ok) {
         throw new Error("Problem resolving user");
@@ -115,16 +119,7 @@ export const {
       return users;
     },
     async resolveMentionSuggestions({ text }) {
-      const response = await fetch(
-        `/api/users/search?text=${encodeURIComponent(text)}`
-      );
-
-      if (!response.ok) {
-        throw new Error("Problem resolving user");
-      }
-
-      const userIds = await response.json();
-      return userIds;
+      return [];
     },
   }
 );

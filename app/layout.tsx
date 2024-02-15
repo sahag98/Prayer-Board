@@ -3,6 +3,7 @@ import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Room } from "./Room";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -29,7 +30,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Room>{children}</Room>
+          <Room>
+            <TooltipProvider>{children}</TooltipProvider>
+          </Room>
         </ThemeProvider>
       </body>
     </html>

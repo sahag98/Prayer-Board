@@ -31,18 +31,6 @@ export function Toolbar({ ...props }) {
         </div>
         <div className={styles.toolbarSeparator} />
         <ToolbarAvatars />
-        <div className={styles.toolbarSeparator} />
-        <div className={styles.toolbarActions}>
-          <Collapsible.Trigger asChild>
-            <Button variant="ghost" square>
-              <SidebarIcon
-                style={{ opacity: open ? "0.7" : "1" }}
-                width={12}
-                height={12}
-              />
-            </Button>
-          </Collapsible.Trigger>
-        </div>
       </div>
       <Collapsible.Content className={sidebarStyles.sidebar}>
         <Sidebar onClose={() => setOpen(false)} />

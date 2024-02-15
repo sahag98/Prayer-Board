@@ -8,6 +8,8 @@ import { getUsers } from "@/database";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
+
+  console.log(searchParams);
   const text = searchParams.get("text") as string;
 
   const filteredUserIds = getUsers()
