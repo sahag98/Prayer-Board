@@ -82,7 +82,7 @@ export default function Home() {
 
           <p className="mb-3 bg-clip-text text-transparent inline-block bg-gradient-to-r from-fuchsia-500 to-cyan-600 dark:text-gray-700">
             Write <span className="font-bold">anonymous</span> prayer requests
-            and pray in <span className="font-bold">Real-Time.</span>
+            and respond in <span className="font-bold">Real-Time.</span>
           </p>
 
           <Link className="mb-2" href="/board">
