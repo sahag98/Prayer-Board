@@ -3,18 +3,20 @@
 import { ReactNode } from "react";
 import { RoomProvider } from "@/liveblocks.config";
 import { ClientSideSuspense } from "@liveblocks/react";
+import { LiveList } from "@liveblocks/client";
 
 export function Room({ children }: { children: ReactNode }) {
   return (
     <RoomProvider
       id="my-room"
-      initialPresence={{ cursor: null, editingText: null }}
+      initialPresence={{ cursor: null, isTyping: false, editingText: null }}
+      initialStorage={{ reviews: new LiveList() }}
     >
       <ClientSideSuspense
         fallback={
           <div
             role="status"
-            className=" h-screen flex items-center justify-center"
+            className=" h-screen overflow-hidden flex items-center justify-center"
           >
             <svg
               aria-hidden="true"

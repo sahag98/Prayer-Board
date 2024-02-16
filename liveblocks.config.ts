@@ -1,4 +1,4 @@
-import { createClient } from "@liveblocks/client";
+import { LiveList, LiveObject, createClient } from "@liveblocks/client";
 import { createRoomContext } from "@liveblocks/react";
 
 const client = createClient({
@@ -24,6 +24,7 @@ export type DragOffset = {
 // `user.presence` property. Must be JSON-serializable.
 type Presence = {
   cursor: AccurateCursorPositions | null;
+  isTyping: boolean;
   editingText: `${string}/${string}` | null;
 };
 
@@ -32,8 +33,13 @@ type Presence = {
 // LiveList, LiveMap, LiveObject instances, for which updates are
 // automatically persisted and synced to all connected clients.
 type Storage = {
-  // author: LiveObject<{ firstName: string, lastName: string }>,
-  // ...
+  reviews: LiveList<LiveObject<Review>>;
+};
+
+type Review = {
+  text: string;
+  stars: number;
+  createdAt: string;
 };
 
 // Optionally, UserMeta represents static/readonly metadata on each user, as

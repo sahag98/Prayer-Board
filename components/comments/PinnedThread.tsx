@@ -82,6 +82,10 @@ export function PinnedThread({
       {!minimized ? (
         <div className={styles.pinnedContent}>
           <Thread
+            showResolveAction={false}
+            overrides={{
+              THREAD_COMPOSER_PLACEHOLDER: "Reply to prayer...",
+            }}
             thread={thread}
             indentCommentContent={false}
             onFocus={onFocus}

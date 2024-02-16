@@ -33,6 +33,9 @@ export function PinnedComposer({
       </div>
       <div className={styles.pinnedContent}>
         <Composer
+          overrides={{
+            COMPOSER_PLACEHOLDER: "Write a prayer...",
+          }}
           onComposerSubmit={onComposerSubmit}
           onClick={(e) => {
             // Don't send up a click event from emoji popout and close the composer

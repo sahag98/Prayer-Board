@@ -4,7 +4,7 @@ import { BoardPage } from "../BoardPage";
 
 const Page = () => {
   return (
-    <div className="h-screen dark:bg-[url('/dark.svg')] bg-[url('/board-pattern.svg')]">
+    <div className="h-screen overflow-hidden dark:bg-[url('/dark.svg')] bg-[url('/board-pattern.svg')]">
       <BoardPage />
     </div>
   );
