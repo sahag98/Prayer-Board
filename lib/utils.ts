@@ -1,4 +1,5 @@
 import { type ClassValue, clsx } from "clsx";
+import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -44,3 +45,26 @@ export function generateRandomName(): string {
 
   return `${randomAdjective} ${randomAnimal}`;
 }
+
+export const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Adjust the threshold as needed
+    };
+
+    // Initial check on component mount
+    handleResize();
+
+    // Add resize event listener to update on window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return isMobile;
+};

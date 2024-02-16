@@ -1,6 +1,5 @@
 "use client";
 
-import { ModeToggle } from "@/components/toggleTheme";
 import { Button } from "@/components/ui/button";
 import {
   useMutation,
@@ -12,20 +11,19 @@ import { LiveObject } from "@liveblocks/client";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
+
 import { Textarea } from "@/components/ui/textarea";
 import { Star, User } from "lucide-react";
+import Footer from "@/components/footer";
 
 function SomeoneIsTyping() {
   const someoneIsTyping = useOthers((others) =>
     others.some((other) => other.presence.isTyping)
   );
 
-  console.log("istyping: ", someoneIsTyping);
-
   return (
-    <div className=" text-black h-10">
-      {someoneIsTyping ? "Someone is typing..." : ""}
+    <div className=" text-black text-xs h-10">
+      {someoneIsTyping ? "Someone is writing a review..." : ""}
     </div>
   );
 }
@@ -51,164 +49,153 @@ export default function Home() {
   };
 
   return (
-    <main className="flex relative  min-h-screen flex-col items-center justify-center lg:px-24 md:px-10 px-4">
-      <a
-        className="w-52 hidden lg:flex mb-10 self-end fixed bottom-0  z-10 "
-        href="https://www.buymeacoffee.com/prayse"
-      >
-        <img src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=✝️&slug=prayse&button_colour=5F7FFF&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" />
-      </a>
-      {/* <a
-        className="w-52 hidden lg:flex mb-10 self-end fixed bottom-0  z-10 "
-        href="https://www.buymeacoffee.com/prayse"
-      >
-        <img src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=❤️&slug=prayse&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" />
-      </a> */}
+    <>
+      <main className="flex relative  min-h-screen flex-col items-center justify-center lg:px-24 md:px-10 px-4">
+        <a
+          className="w-52 hidden lg:flex mb-10 self-end fixed bottom-0  z-10 "
+          href="https://www.buymeacoffee.com/prayse"
+        >
+          <img src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=✝️&slug=prayse&button_colour=5F7FFF&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" />
+        </a>
 
-      <a
-        className="w-40 lg:hidden mb-10 self-end fixed top-5 z-10 "
-        href="https://www.buymeacoffee.com/prayse"
-        target="_blank"
-      >
-        <img src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=❤️&slug=prayse&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" />
-      </a>
+        <a
+          className="w-44 lg:hidden mb-10 self-end fixed top-5 z-10 "
+          href="https://www.buymeacoffee.com/prayse"
+          target="_blank"
+        >
+          <img src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=✝️&slug=prayse&button_colour=5F7FFF&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" />
+        </a>
 
-      <div className="flex flex-col w-full  md:w-full lg:w-fit items-center mb-16 mt-72 bg-[url('/pattern.svg')] dark:bg-[url('/dark-pattern.svg')] bg-contain p-2">
-        <h1 className="lg:text-5xl md:text-5xl text-4xl font-bold dark:text-white mb-1">
-          Prayer Board
-        </h1>
-        {/* <p className="mb-3 bg-clip-text text-transparent inline-block bg-gradient-to-r from-fuchsia-500 to-cyan-500 dark:text-gray-500">
-          Write praye requests and pray for one another in{" "}
-          <span className="font-bold">Real Time.</span>
-        </p> */}
-        <p className="mb-3 text-gray-600">
-          Write praye requests and pray for one another in{" "}
-          <span className="font-bold">Real Time.</span>
-        </p>
-        <Link className="mb-2" href="/board">
-          <Button className="dark:bg-[#bccdf9] font-semibold">
-            Get Started 🙏
-          </Button>
-        </Link>
-        <div className="border text-xs dark:border-gray-600 border-gray-300 rounded-full p-2">
-          There are {userCount} other user(s) online
-        </div>
-      </div>
-      <div className="lg:w-full lg:px-0  md:w-full lg:mt-0 md:mt-10 mt-32 w-full flex flex-col items-center">
-        <Image
-          className="border lg:w-1/2 md:w-full w-full rounded-lg"
-          src="/intro.gif"
-          width={600}
-          height={299}
-          alt="gif"
-        />
-
-        <section className="mt-10 pb-10  w-full flex flex-col items-center justify-center">
-          <h2 className="font-semibold text-2xl">Reviews</h2>
-          <p className="text-sm mb-5">
-            Thank you for trying our prayer board! Please feel free to provide
-            some feedback so that we can make our prayer board better and better
-            serve you.
-          </p>
-          <Textarea
-            className="lg:w-3/4 md:w-full w-full resize-none"
-            placeholder="Write a review..."
-            value={draft}
-            onChange={(e) => {
-              setDraft(e.target.value);
-              updateMyPresence({ isTyping: true });
-            }}
-            onBlur={() => updateMyPresence({ isTyping: false })}
-          />
-          <div className="flex lg:w-3/4 items-center justify-between w-full  gap-2">
-            <div className="flex items-center gap-2">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <div
-                  onClick={() => addStar(index)}
-                  key={index}
-                  className="cursor-pointer"
-                >
-                  <Star
-                    fill={fillStars >= index ? "yellow" : "white"}
-                    size={30}
-                  />
-                </div>
-              ))}
-            </div>
-            <Button
-              onClick={() => {
-                if (draft) {
-                  const today = new Date().toString();
-                  console.log(today);
-                  updateMyPresence({ isTyping: false });
-                  addTodo(draft, fillStars, today);
-                  setDraft("");
-                  setfillStars(0);
-                }
-              }}
-              disabled={draft.length == 0 ? true : false}
-              className="self-end mt-4"
-            >
-              Send
-            </Button>
+        <div className="flex flex-col relative w-full  md:w-full lg:w-fit items-center mb-16 mt-72 bg-[url('/pattern.svg')] dark:bg-[url('/dark-pattern.svg')] bg-contain p-2">
+          <div className="relative flex gap-1">
+            <h1 className="lg:text-5xl md:text-5xl text-4xl font-extrabold tracking-wider dark:text-white mb-1">
+              Prayse Board
+            </h1>
+            <span className="font-bold text-blue-500 text-xl">BETA</span>
           </div>
 
-          <SomeoneIsTyping />
-          {reviews.length == 0 ? (
-            <div className="flex w-full pb-5 items-center justify-center">
-              <p className="text-center rounded-md font-semibold">
-                No Reviews yet!
-              </p>
-            </div>
-          ) : (
-            <section className="grid w-full  grid-cols-1 lg:grid-cols-3 place-items-center gap-10">
-              {reviews.map((review, index) => {
-                const date = new Date(review.createdAt);
-                console.log(date.getDay());
-                return (
+          <p className="mb-3 bg-clip-text text-transparent inline-block bg-gradient-to-r from-fuchsia-500 to-cyan-600 dark:text-gray-700">
+            Write <span className="font-bold">anonymous</span> prayer requests
+            and pray in <span className="font-bold">Real-Time.</span>
+          </p>
+
+          <Link className="mb-2" href="/board">
+            <Button className="dark:bg-[#bccdf9] font-semibold">
+              Get Started 🙏
+            </Button>
+          </Link>
+          <div className="border text-xs dark:border-gray-600 border-gray-300 rounded-full px-2 py-1">
+            There are {userCount} other user(s) online
+          </div>
+        </div>
+
+        <div className="lg:w-full lg:px-0  md:w-full lg:mt-0 md:mt-10 mt-32 w-full flex flex-col items-center">
+          <Image
+            className="border lg:w-1/2 md:w-full w-full rounded-lg"
+            src="/intro.gif"
+            width={600}
+            height={299}
+            alt="gif"
+          />
+
+          <section className="mt-10 pb-10  w-full flex flex-col items-center justify-center">
+            <h2 className="font-semibold text-2xl">Reviews</h2>
+            <p className="text-sm mb-5">
+              Thank you for trying our prayer board! Please feel free to provide
+              some feedback on it's features so that we can make our prayer
+              board better and find new ways to better serve you.
+            </p>
+            <Textarea
+              className="lg:w-3/4 md:w-full w-full resize-none"
+              placeholder="Write a review..."
+              value={draft}
+              onChange={(e) => {
+                setDraft(e.target.value);
+                updateMyPresence({ isTyping: true });
+              }}
+              onBlur={() => updateMyPresence({ isTyping: false })}
+            />
+            <div className="flex lg:w-3/4 items-center justify-between w-full  gap-2">
+              <div className="flex items-center gap-2">
+                {Array.from({ length: 5 }).map((_, index) => (
                   <div
-                    className="p-2 border w-full rounded-md bg-primary flex flex-col gap-5"
+                    onClick={() => addStar(index)}
                     key={index}
+                    className="cursor-pointer"
                   >
-                    <section className="flex w-full items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <User size={35} color="white" />
-                        <h3 className="text-primary-foreground font-semibold">
-                          Anonymous
-                        </h3>
-                      </div>
-                      <span className="text-gray-400 text-xs">
-                        {date.toDateString()}
-                      </span>
-                    </section>
-                    <p className="text-primary-foreground">{review.text}</p>
-                    <div className="flex gap-1">
-                      {Array.from({ length: 5 }).map((_, index) => (
-                        <div key={index}>
-                          <Star
-                            fill={review.stars >= index ? "yellow" : "white"}
-                            size={30}
-                          />
-                        </div>
-                      ))}
-                    </div>
+                    <Star
+                      fill={fillStars >= index ? "yellow" : "white"}
+                      size={30}
+                    />
                   </div>
-                );
-              })}
-            </section>
-          )}
-        </section>
-      </div>
-      <div className="flex items-center align-bottom">
-        <span>By </span>
-        <Image
-          className="w-36 dark:invert"
-          alt="prayse logo"
-          src="/footer.png"
-          width={200}
-          height={100}
-        />
-      </div>
-    </main>
+                ))}
+              </div>
+              <Button
+                onClick={() => {
+                  if (draft) {
+                    const today = new Date().toString();
+                    console.log(today);
+                    updateMyPresence({ isTyping: false });
+                    addTodo(draft, fillStars, today);
+                    setDraft("");
+                    setfillStars(0);
+                  }
+                }}
+                disabled={draft.length == 0 ? true : false}
+                className="self-end mt-4"
+              >
+                Send
+              </Button>
+            </div>
+
+            <SomeoneIsTyping />
+            {reviews.length == 0 ? (
+              <div className="flex w-full pb-5 items-center justify-center">
+                <p className="text-center rounded-md font-semibold">
+                  No Reviews yet!
+                </p>
+              </div>
+            ) : (
+              <section className="grid w-full  grid-cols-1 lg:grid-cols-3 place-items-center gap-10">
+                {reviews.map((review, index) => {
+                  const date = new Date(review.createdAt);
+                  console.log(date.getDay());
+                  return (
+                    <div
+                      className="p-2 border w-full rounded-md bg-primary flex flex-col gap-5"
+                      key={index}
+                    >
+                      <section className="flex w-full items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <User size={35} color="white" />
+                          <h3 className="text-primary-foreground font-semibold">
+                            Anonymous
+                          </h3>
+                        </div>
+                        <span className="text-gray-400 text-xs">
+                          {date.toDateString()}
+                        </span>
+                      </section>
+                      <p className="text-primary-foreground">{review.text}</p>
+                      <div className="flex gap-1">
+                        {Array.from({ length: 5 }).map((_, index) => (
+                          <div key={index}>
+                            <Star
+                              fill={review.stars >= index ? "yellow" : "white"}
+                              size={30}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </section>
+            )}
+          </section>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }

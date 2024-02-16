@@ -108,7 +108,6 @@ export const {
   client,
   {
     async resolveUsers({ userIds }) {
-      // return [];
       const searchParams = new URLSearchParams(
         userIds.map((userId) => ["userIds", userId])
       );

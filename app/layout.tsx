@@ -12,8 +12,20 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Prayer Board",
-  description: "Prayer Board by Prayse",
+  title: "Prayse Board",
+  description:
+    "Write anonymous prayer requests and pray for one another in Real Time.",
+  authors: [{ name: "Prayse", url: "https://www.prayse.app/" }],
+  keywords: [
+    "prayer",
+    "pray",
+    "real-time",
+    "prayse",
+    "anonymous",
+    "prayforpeople",
+    "prayer board",
+    "liveblocks",
+  ],
 };
 
 export default function RootLayout({

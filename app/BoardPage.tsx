@@ -1,19 +1,30 @@
 "use client";
 
-import { ModeToggle } from "@/components/toggleTheme";
-import { useSelf } from "@/liveblocks.config";
-
 import { BaseUserMeta, User } from "@liveblocks/client";
 
 import { Cursors } from "@/components/cursors/Cursors";
 import { Comments } from "@/components/comments/Comments";
 
 import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export type Presence = any;
 
@@ -22,18 +33,54 @@ export type LiveCursorProps = {
 };
 
 export function BoardPage() {
-  const currentUser = useSelf();
+  const router = useRouter();
+  const [isMobile, setIsMobile] = useState(false);
 
-  console.log(currentUser);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Adjust the threshold as needed
+    };
+
+    // Initial check on component mount
+    handleResize();
+
+    // Add resize event listener to update on window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="h-screen w-full overflow-hidden">
       <Cursors />
       <div className="bg-red-400">
         <Comments />
       </div>
+      <AlertDialog open={isMobile}>
+        <AlertDialogContent className="rounded-md w-3/4">
+          <AlertDialogHeader>
+            <AlertDialogTitle>Do you want to proceed?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Due to mouse tracking functionalities, the board is best used on
+              laptops or pcs.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={() => router.push("/")}>
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction onClick={() => setIsMobile(false)}>
+              Continue
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       <Accordion
-        className="absolute top-5 lg:w-1/4 w-1/3 border rounded-md px-4 z-50 bg-white left-5"
+        className="absolute top-5 lg:w-1/4 border rounded-md px-4 z-50 bg-white left-5"
         type="single"
         collapsible
       >

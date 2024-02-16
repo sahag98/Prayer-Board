@@ -69,7 +69,7 @@ const USER_INFO: UserMeta[] = [
     id: "9",
     info: {
       name: "Anonymous",
-      color: "#87EE85",
+      color: "#212121",
       avatar: "https://liveblocks.io/avatars/avatar-9.png",
     },
   },
@@ -77,7 +77,7 @@ const USER_INFO: UserMeta[] = [
     id: "10",
     info: {
       name: "Anonymous",
-      color: "#87EE85",
+      color: "#93d8f8",
       avatar: "https://liveblocks.io/avatars/avatar-10.png",
     },
   },

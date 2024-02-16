@@ -1,6 +1,12 @@
 import React from "react";
-import { Room } from "../Room";
 import { BoardPage } from "../BoardPage";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Board",
+  description: "Write prayer requests in real-time!",
+};
 
 const Page = () => {
   return (
