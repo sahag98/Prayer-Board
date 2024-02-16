@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 
 const Footer = () => {
   return (
-    <div className="w-full py-4 h-60 lg:px-24 md:px-10 px-4 border-t gap-5 lg:gap-10 flex flex-wrap lg:flex-row items-start">
+    <div className="w-full py-4 h-60 lg:px-24 mb-5 md:px-10 px-4 justify-center lg:justify-normal md:justify-normal border-t gap-5 lg:gap-10 flex flex-wrap lg:flex-row items-start">
       <section>
         <h4 className="font-bold mb-2 ">Social Media Links</h4>
         <ul className="space-y-2">

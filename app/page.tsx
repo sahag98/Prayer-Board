@@ -95,7 +95,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="lg:w-full lg:px-0  md:w-full lg:mt-0 md:mt-10 mt-12 w-full flex flex-col items-center">
+        <div className="lg:w-full lg:px-0  md:w-full lg:mt-0 md:mt-10 mt-10 w-full flex flex-col items-center">
           <Image
             className="border lg:w-1/2 md:w-full w-full rounded-lg"
             src="/intro.gif"
