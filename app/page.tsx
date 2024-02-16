@@ -95,7 +95,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="lg:w-full lg:px-0  md:w-full lg:mt-0 md:mt-10 mt-32 w-full flex flex-col items-center">
+        <div className="lg:w-full lg:px-0  md:w-full lg:mt-0 md:mt-10 mt-12 w-full flex flex-col items-center">
           <Image
             className="border lg:w-1/2 md:w-full w-full rounded-lg"
             src="/intro.gif"
@@ -104,7 +104,7 @@ export default function Home() {
             alt="gif"
           />
 
-          <section className="mt-10 pb-10  w-full flex flex-col items-center justify-center">
+          <section className="mt-10 pb-10 w-full flex flex-col items-center justify-center">
             <h2 className="font-semibold text-2xl">Reviews</h2>
             <p className="text-sm mb-5">
               Thank you for trying our prayer board! Please feel free to provide
