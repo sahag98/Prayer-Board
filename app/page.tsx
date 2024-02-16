@@ -55,7 +55,10 @@ export default function Home() {
           className="w-52 hidden lg:flex mb-10 self-end fixed bottom-0  z-10 "
           href="https://www.buymeacoffee.com/prayse"
         >
-          <img src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=✝️&slug=prayse&button_colour=5F7FFF&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" />
+          <img
+            alt="support button image"
+            src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=✝️&slug=prayse&button_colour=5F7FFF&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00"
+          />
         </a>
 
         <a
@@ -63,7 +66,10 @@ export default function Home() {
           href="https://www.buymeacoffee.com/prayse"
           target="_blank"
         >
-          <img src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=✝️&slug=prayse&button_colour=5F7FFF&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" />
+          <img
+            alt="support button image"
+            src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=✝️&slug=prayse&button_colour=5F7FFF&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00"
+          />
         </a>
 
         <div className="flex flex-col relative w-full  md:w-full lg:w-fit items-center mb-16 mt-72 bg-[url('/pattern.svg')] dark:bg-[url('/dark-pattern.svg')] bg-contain p-2">
@@ -102,7 +108,7 @@ export default function Home() {
             <h2 className="font-semibold text-2xl">Reviews</h2>
             <p className="text-sm mb-5">
               Thank you for trying our prayer board! Please feel free to provide
-              some feedback on it's features so that we can make our prayer
+              some feedback on it&apos;s features so that we can make our prayer
               board better and find new ways to better serve you.
             </p>
             <Textarea
