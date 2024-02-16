@@ -56,8 +56,14 @@ export default function Home() {
         className="w-52 hidden lg:flex mb-10 self-end fixed bottom-0  z-10 "
         href="https://www.buymeacoffee.com/prayse"
       >
-        <img src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=❤️&slug=prayse&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" />
+        <img src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=✝️&slug=prayse&button_colour=5F7FFF&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" />
       </a>
+      {/* <a
+        className="w-52 hidden lg:flex mb-10 self-end fixed bottom-0  z-10 "
+        href="https://www.buymeacoffee.com/prayse"
+      >
+        <img src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=❤️&slug=prayse&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" />
+      </a> */}
 
       <a
         className="w-40 lg:hidden mb-10 self-end fixed top-5 z-10 "
@@ -67,8 +73,8 @@ export default function Home() {
         <img src="https://img.buymeacoffee.com/button-api/?text=Support Prayse&emoji=❤️&slug=prayse&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" />
       </a>
 
-      <div className="flex flex-col  md:w-full lg:w-fit items-center mb-16 mt-72 bg-[url('/pattern.svg')] dark:bg-[url('/dark-pattern.svg')] bg-contain p-5">
-        <h1 className="text-5xl font-bold dark:text-white mb-1">
+      <div className="flex flex-col w-full  md:w-full lg:w-fit items-center mb-16 mt-72 bg-[url('/pattern.svg')] dark:bg-[url('/dark-pattern.svg')] bg-contain p-2">
+        <h1 className="lg:text-5xl md:text-5xl text-4xl font-bold dark:text-white mb-1">
           Prayer Board
         </h1>
         {/* <p className="mb-3 bg-clip-text text-transparent inline-block bg-gradient-to-r from-fuchsia-500 to-cyan-500 dark:text-gray-500">
@@ -88,24 +94,14 @@ export default function Home() {
           There are {userCount} other user(s) online
         </div>
       </div>
-      <div className="lg:w-full lg:px-0 px-4 md:w-2/3 lg:-bottom-[450px] md:-bottom-20 -bottom-24 w-full flex flex-col items-center">
+      <div className="lg:w-full lg:px-0  md:w-full lg:mt-0 md:mt-10 mt-32 w-full flex flex-col items-center">
         <Image
-          className="border w-1/2 rounded-lg"
+          className="border lg:w-1/2 md:w-full w-full rounded-lg"
           src="/intro.gif"
           width={600}
           height={299}
           alt="gif"
         />
-        <div className="flex items-center align-bottom">
-          <span>By </span>
-          <Image
-            className="w-36 dark:invert"
-            alt="prayse logo"
-            src="/footer.png"
-            width={200}
-            height={100}
-          />
-        </div>
 
         <section className="mt-10 pb-10  w-full flex flex-col items-center justify-center">
           <h2 className="font-semibold text-2xl">Reviews</h2>
@@ -176,21 +172,19 @@ export default function Home() {
                   >
                     <section className="flex w-full items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <User color="white" />
-                        <h3 className="text-primary-foreground">Anonymous</h3>
+                        <User size={35} color="white" />
+                        <h3 className="text-primary-foreground font-semibold">
+                          Anonymous
+                        </h3>
                       </div>
-                      <span className="text-white text-xs">
+                      <span className="text-gray-400 text-xs">
                         {date.toDateString()}
                       </span>
                     </section>
                     <p className="text-primary-foreground">{review.text}</p>
                     <div className="flex gap-1">
                       {Array.from({ length: 5 }).map((_, index) => (
-                        <div
-                          onClick={() => addStar(index)}
-                          key={index}
-                          className="cursor-pointer"
-                        >
+                        <div key={index}>
                           <Star
                             fill={review.stars >= index ? "yellow" : "white"}
                             size={30}
@@ -204,6 +198,16 @@ export default function Home() {
             </section>
           )}
         </section>
+      </div>
+      <div className="flex items-center align-bottom">
+        <span>By </span>
+        <Image
+          className="w-36 dark:invert"
+          alt="prayse logo"
+          src="/footer.png"
+          width={200}
+          height={100}
+        />
       </div>
     </main>
   );
